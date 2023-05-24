@@ -27,5 +27,7 @@ while True:
             execute('change', db.data_manipulation.change, 4, *command[1:])
         case 'supplie':
             execute('supplie', db.work_functions.supplie, 3, *command[1:])
+        case 'suppliesAndPurchases':
+            execute('suppliesAndPurchases', db.data_functions.supplies_and_purchases, 0, *command[1:])
         case _:
             print(f"Command {command[0]} does not exist")

@@ -18,6 +18,6 @@ def supplie(provider_id: str, product_id: str, amount: int):
         db.supplies.insert_one(supplie_)
         supplie_print = PrettyTable(supplie_)
         supplie_print.add_row(supplie_.values())
-        print(f"Successful suplie \n{supplie_print}\nnew ammount = {prev_amount + amount}")
+        print(f"Successful suplie\n{supplie_print}\nNew ammount = {prev_amount + amount}")
     else:
         print("Something went wrong")
