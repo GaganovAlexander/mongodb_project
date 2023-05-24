@@ -27,6 +27,8 @@ while True:
             execute('change', db.data_manipulation.change, 4, *command[1:])
         case 'supplie':
             execute('supplie', db.work_functions.supplie, 3, *command[1:])
+        case 'purchase':
+            execute('purchase', db.work_functions.purchase, 3, *command[1:])
         case 'suppliesAndPurchases':
             execute('suppliesAndPurchases', db.data_functions.supplies_and_purchases, 0, *command[1:])
         case _:
