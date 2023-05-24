@@ -31,5 +31,7 @@ while True:
             execute('purchase', db.work_functions.purchase, 3, *command[1:])
         case 'suppliesAndPurchases':
             execute('suppliesAndPurchases', db.data_functions.supplies_and_purchases, 0, *command[1:])
+        case 'rating':
+            execute('rating', db.data_functions.rating, 0, *command[1:])
         case _:
             print(f"Command {command[0]} does not exist")

@@ -19,9 +19,10 @@ def supplies_and_purchases():
     purchases = db.purchases.find()
     for i in purchases:
         product = db.products.find_one({"_id": i.get('product_id')})
+        purhcaser = db.purchasers.find_one({"_id": i.get('purchaser_id')})
         result.add_row([
-            db.purchasers.find_one({"_id": i.get('purchaser_id')}).get('name'),
             product.get('name'),
+            f"{purhcaser.get('surname')} {purhcaser.get('firstName')}",
             i.get('time'),
             i.get('amount'),
             product.get('price') * i.get('amount')
@@ -29,20 +30,20 @@ def supplies_and_purchases():
     print(result)
 
 def rating():
-    result = PrettyTable(('Name', 'Purchases sum', 'Purchasers amount', 'Purhcases amount'))
+    result = PrettyTable(('Name', 'Purchases sum', 'Purchasers amount', 'Purchases amount'))
     purchases = db.purchases.find()
     pre_res = {}
     for i in purchases:
-        product = db.product.find({"_id": i.get('product_id')})
+        product = db.products.find_one({"_id": i.get('product_id')})
         if not pre_res.get(product.get('name')) is None:
             pre_res[product.get('name')]['Purchases sum'] += i.get('amount') * product.get('price')
             pre_res[product.get('name')]['Purchasers amount'] += 1
-            pre_res[product.get('name')]['Purhcases amount'] += i.get('amount')
+            pre_res[product.get('name')]['Purchases amount'] += i.get('amount')
         else:
             pre_res[product.get('name')] = {}
             pre_res[product.get('name')]['Purchases sum'] = i.get('amount') * product.get('price')
             pre_res[product.get('name')]['Purchasers amount'] = 1
-            pre_res[product.get('name')]['Purhcases amount'] = i.get('amount')
-    for i in pre_res.values():
-        result.add_row(i[0], i[1]['Purchases sum'], i[1]['Purchasers amount'], i[1]['Purchases amount'])
+            pre_res[product.get('name')]['Purchases amount'] = i.get('amount')
+    for i in pre_res.items():
+        result.add_row((i[0], i[1]['Purchases sum'], i[1]['Purchasers amount'], i[1]['Purchases amount']))
     print(result)
