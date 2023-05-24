@@ -1,0 +1,32 @@
+{
+	"providers": [
+		{
+			"name": "Intel",
+			"city": "Santa Ciara"
+		},
+		{
+			"name": "AMD",
+			"city": "Santa Ciara"
+		},
+		{
+			"name": "MSI",
+			"city": "Zhoghe"
+		},
+		{
+			"name": "GIGABYTE",
+			"city": "Xindian District"
+		},
+		{
+			"name": "Palit",
+			"city": "Taipei"
+		},
+		{
+			"name": "DEEPCOOL",
+			"city": "Beijing"
+		},
+		{
+			"name": "Corsair",
+			"city": "Milpitas"
+		}
+	]
+}

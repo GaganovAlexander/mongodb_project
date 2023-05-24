@@ -1,0 +1,31 @@
+from json import loads
+
+from bson.objectid import ObjectId
+from db import db
+
+def collection_check(func):
+    def wrapper(collection, *args, **kwargs):
+        if not collection in db.list_collection_names():
+            print(f"collection {collection} does not exists")
+            return
+        return func(collection, *args, **kwargs)
+    return wrapper
+
+@collection_check
+def insert_from_file(collection: str, file_path: str):
+    with open(file_path, 'r') as f:
+        for i in loads(f.read())[collection]:
+            i['_id'] = str(ObjectId())
+            db[collection].insert_one(i)
+            print(f"Object {i}, inserted into {collection}")
+
+@collection_check
+def change(collection: str, id: str, item: str, new_value: str):
+    print(db[collection].update_one({'_id': id}, {'$set': {item: new_value}}).raw_result)
+
+@collection_check
+def delete(collection: str, id: str):
+    if db[collection].delete_one({'_id': id}).deleted_count:
+        print(f"Object {db[collection].find_one({'_id': id})} was successfully deleted from {collection}")
+    else:
+        print(f"There's no such object in {collection}")

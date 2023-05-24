@@ -1,0 +1,62 @@
+{
+	"purchasers": [
+		{
+			"surname": "Voronin",
+			"firstName": "Artemiy",
+			"patronymic": "Andreevich",
+			"currentBalance": 500.5
+		},
+		{
+			"surname": "Gaganov",
+			"firstName": "Alexander",
+			"patronymic": "Aleksandrovich",
+			"currentBalance": 100.5
+		},
+		{
+			"surname": "Gaganov San SSanich",
+			"firstName": "SHAD-Sanich",
+			"patronymic": "SHAD_TEST",
+			"currentBalance": 322.123
+		},
+		{
+			"surname": "Petrov",
+			"firstName": "Artem",
+			"patronymic": "Georgievich",
+			"currentBalance": 1013.97
+		},
+		{
+			"surname": "Ginda",
+			"firstName": "Danila",
+			"patronymic": "Aleksandrovich",
+			"currentBalance": 75971.17
+		},
+		{
+			"surname": "Ivanov",
+			"firstName": "Ivan",
+			"patronymic": "Ivanovich",
+			"currentBalance": 99999
+		},
+		{
+			"surname": "Gaganov SHAD",
+			"firstName": "SHAD-Sanich",
+			"patronymic": "SHAD_TEST",
+			"currentBalance": 256.3
+		},
+		{
+			"surname": "Kim",
+			"firstName": "Jong Un",
+			"currentBalance": 43200
+		},
+		{
+			"surname": "Utkin2",
+			"firstName": "Sergey",
+			"currentBalance": 10000.1
+		},
+		{
+			"surname": "Shurup",
+			"firstName": "Sanya",
+			"patronymic": "Drell",
+			"currentBalance": 7223.22
+		}
+	]
+}
