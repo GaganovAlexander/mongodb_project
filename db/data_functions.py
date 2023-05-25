@@ -41,9 +41,9 @@ def turnover():
         pre_res[i.get('product_id')]['profit'] -= db.products.find_one(i.get('products_id')).get('price') * i.get('amount')
     for i in purchases:
         purchaser = db.purchasers.find_one({"_id": i.get('purchaser_id')})
-        name = f"{purchaser.get('surname')} {purchaser.get('lastname')}"
+        name = f"{purchaser.get('surname')} {purchaser.get('firstName')}"
         pre_res[i.get('product_id')]['purchases'] += i.get('amount')
-        pre_res[i.get('product_id')]['purchasers'] += ", " + name if pre_res[i.get('product_id')]['purchasers'] else name if name is not None else ''
+        pre_res[i.get('product_id')]['purchasers'] += ", " + name if pre_res[i.get('product_id')]['purchasers'] else name
         pre_res[i.get('product_id')]['profit'] += db.products.find_one(i.get('products_id')).get('price') * i.get('amount')
     for i in pre_res.values():
         result.add_row((i['name'], i['supplies'], i['providers'], i['purchases'], i['purchasers'], i['profit']))
