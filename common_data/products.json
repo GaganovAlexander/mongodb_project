@@ -1,61 +1,51 @@
 {
 	"products": [
 		{
-			"id": "0",
 			"name": "Core i3-12100F OEM",
 			"count": 10,
 			"price": 110.5
 		},
 		{
-			"id": "1",
 			"name": "VX PLUS 500W",
 			"count": 10,
 			"price": 31.85
 		},
 		{
-			"id": "2",
 			"name": "Ryzen 7 5800X OEM",
 			"count": 244,
 			"price": 286.02
 		},
 		{
-			"id": "3",
 			"name": "DQ750",
 			"count": 72,
 			"price": 107.89
 		},
 		{
-			"id": "4",
 			"name": "GeForce GTX 1660 SUPER",
 			"count": 25,
 			"price": 266.48
 		},
 		{
-			"id": "5",
 			"name": "Ryzen 5 5600x OEM",
 			"count": 55,
 			"price": 188.51
 		},
 		{
-			"id": "6",
 			"name": "Core i5-12400F",
 			"count": 33,
 			"price": 187.18
 		},
 		{
-			"id": "7",
 			"name": "AMD Radeon RX 6600",
 			"count": 12,
 			"price": 337.98
 		},
 		{
-			"id": "8",
 			"name": "GeForce RTX 4090",
 			"count": 123,
 			"price": 168.99
 		},
 		{
-			"id": "9",
 			"name": "GeForce RTX 370 Ti",
 			"count": 384,
 			"price": 753.97
