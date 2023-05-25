@@ -6,7 +6,7 @@ from prettytable import PrettyTable
 from db import db
 
 
-def supplie(provider_id: str, product_id: str, amount: int):
+def supply(provider_id: str, product_id: str, amount: int,):
     amount = float(amount)
     if amount <= 0 or amount % 1:
         print("amount should be positive integer")
@@ -44,3 +44,17 @@ def purchase(purchaser_id: str, product_id: str, amount: str):
         print(f"Successful suplie\n{purchase_print}\nPurchase price = {amount * product.get('price')}")
     else:
         print("Something went wrong")
+
+def top_up_balance(purchaser_id: str,  amount: str):
+    try:
+        amount = float(amount)
+    except ValueError:
+        print("Try to enter a number")
+        return
+    if amount < 0:
+        print('Amount cannot be negative')
+        return
+    if db.purchasers.update_one({'_id': purchaser_id}, {"$inc": {"currentBalance": amount}}).raw_result.get('updatedExisting'):
+        print(f"{amount} was successfully credited on balance, current balance {db.purchasers.find_one({'_id': purchaser_id}).get('currentBalance')}")
+    else:
+        print("There's no such purchaser")

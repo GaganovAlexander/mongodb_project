@@ -29,6 +29,27 @@ def supplies_and_purchases():
         ])
     print(result)
 
+def turnover():
+    result = PrettyTable(('name', 'supplies', 'providers', 'purchases', 'purchasers', 'profit'))
+    supplies = db.supplies.find()
+    purchases = db.purchases.find()
+    pre_res = {i.get('_id'): {'name': i.get('name'), 'supplies': 0, 'providers': '', 'purchases': 0, 'purchasers': '', 'profit': 0} for i in db.products.find()}
+    for i in supplies:
+        name = db.providers.find_one({"_id": i.get('provider_id')}).get('name')
+        pre_res[i.get('product_id')]['supplies'] += i.get('amount')
+        pre_res[i.get('product_id')]['providers'] += ", " + name if pre_res[i.get('product_id')]['providers'] else name if name is not None else ''
+        pre_res[i.get('product_id')]['profit'] -= db.products.find_one(i.get('products_id')).get('price') * i.get('amount')
+    for i in purchases:
+        purchaser = db.purchasers.find_one({"_id": i.get('purchaser_id')})
+        name = f"{purchaser.get('surname')} {purchaser.get('lastname')}"
+        pre_res[i.get('product_id')]['purchases'] += i.get('amount')
+        pre_res[i.get('product_id')]['purchasers'] += ", " + name if pre_res[i.get('product_id')]['purchasers'] else name if name is not None else ''
+        pre_res[i.get('product_id')]['profit'] += db.products.find_one(i.get('products_id')).get('price') * i.get('amount')
+    for i in pre_res.values():
+        result.add_row((i['name'], i['supplies'], i['providers'], i['purchases'], i['purchasers'], i['profit']))
+    print(result)
+
+
 def rating():
     result = PrettyTable(('Name', 'Purchases sum', 'Purchasers amount', 'Purchases amount'))
     purchases = db.purchases.find()

@@ -11,6 +11,5 @@ cluster = MongoClient(environ.get('CONNECTION_PROPERTIES'))
 db = cluster.shad112_Gaganovs_petroject
 
 from db import data_manipulation
-from db import init_db
 from db import work_functions
 from db import data_functions
