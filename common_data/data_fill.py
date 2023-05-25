@@ -26,7 +26,7 @@ def make_job():
 
     top_up_balance(purchasers[1].get('_id'), '228.2')
     supply(providers[1].get('_id'), products[0].get('_id'), '33')
-    top_up_balance('26', '5555.1')
+    top_up_balance(purchasers[2].get('_id'), '5555.1')
 
     purchase(purchasers[2].get('_id'), products[2].get('_id'), '43')
     supply(providers[2].get('_id'), products[1].get('_id'), '1')
